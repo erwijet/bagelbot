@@ -116,10 +116,11 @@ const LoginPage = () => {
         </Box>
       </Stack>
       <Box>
-        What are these values?{" "}
-        <Link color="teal.500" href="#">
-          Check the Docs
-        </Link>
+        What are these values?{" "} Run <span style={{ fontFamily: 'monospace' }}>/identity</span> in the{" "}
+        <Link color="teal.500" href="https://api.bagelbot.net">
+	  #bagels
+        </Link>{" "}
+	channel
       </Box>
     </Flex>
   );

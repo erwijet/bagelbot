@@ -44,6 +44,7 @@ const Transactions = () => {
   const [txModalOpen, setTxModalOpen] = useState(false);
   const [txModalPayee, setTxModalPayee] = useState("");
   const [txModalAmount, setTxModalAmount] = useState(0);
+  const [txModalSendButtonLoading, setTxModalSendButtonLoading] = useState(false);
 
   const [users, setUsers] = useState(
     [] as {
@@ -69,6 +70,8 @@ const Transactions = () => {
   }, []);
 
   async function submitTx() {
+    setTxModalSendButtonLoading(true);
+
     const res = await fetch(`https://api.bagelbot.net/v1/me/tx`, {
       method: "POST",
       headers: {
@@ -82,6 +85,7 @@ const Transactions = () => {
     });
 
     setTxModalOpen(false);
+    setTxModalSendButtonLoading(false);
 
     const resBody = await res.text();
 
@@ -256,7 +260,7 @@ const Transactions = () => {
             <Button mr={3} onClick={() => setTxModalOpen(false)}>
               Cancel
             </Button>
-            <Button disabled={!(txModalAmount > 0 && txModalPayee != "")} colorScheme={"green"} onClick={submitTx}>
+            <Button isLoading={txModalSendButtonLoading} disabled={txModalSendButtonLoading || !(txModalAmount > 0 && txModalPayee != "")} colorScheme={"green"} onClick={submitTx}>
               Submit
             </Button>
           </ModalFooter>

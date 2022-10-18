@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "webpack serve --config=webpack.config.js --hot",
-    "build": "webpack build --config=webpack.config.js"
+    "build": "webpack build --config=webpack.config.js",
+    "release": "yarn build && podman buildx build --platform linux/amd64 -t ghcr.io/bagelbotdev/my:latest . && podman push ghcr.io/bagelbotdev/my:latest && sleep 3 && kubectl rollout restart deploy -n my-bagelbot"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.4",

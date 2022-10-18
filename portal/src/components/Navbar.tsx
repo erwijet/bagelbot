@@ -80,7 +80,7 @@ export default function Navbar() {
                 <Avatar size={"md"} src={profile.profile_image_url} />
               </MenuButton>
               <MenuList>
-                <MenuItem onClick={() => (document.location.href = "https://api.bagelbot.lol")}>Go to slack</MenuItem>
+                <MenuItem onClick={() => (document.location.href = "https://api.bagelbot.net")}>Go to slack</MenuItem>
                 <MenuItem
                   onClick={() => {
                     localStorage.removeItem("mybb-auth");

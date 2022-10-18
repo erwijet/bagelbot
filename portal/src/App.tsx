@@ -27,26 +27,26 @@ const App = () => {
     const token = localStorage.getItem("mybb-auth");
 
     const loadUserData = async () => {
-      const tabRes = await fetch("https://api.bagelbot.lol/v1/me/tabs", {
+      const tabRes = await fetch("https://api.bagelbot.net/v1/me/tabs", {
         headers: { authorization: "Bearer " + token },
       });
-      const orderRes = await fetch("https://api.bagelbot.lol/v1/me/orders", {
+      const orderRes = await fetch("https://api.bagelbot.net/v1/me/orders", {
         headers: { authorization: "Bearer " + token },
       });
-      const hostRes = await fetch("https://api.bagelbot.lol/v1/me/hosts", {
+      const hostRes = await fetch("https://api.bagelbot.net/v1/me/hosts", {
         headers: { authorization: "Bearer " + token },
       });
       const pingsetRes = await fetch('https://api.bagelbot.net/v1/me/notifications', {
         headers: { authorization: "Bearer " + token }
       });
       const coinRes = await fetch(
-        "https://api.bagelbot.lol/v1/me/coin-history",
+        "https://api.bagelbot.net/v1/me/coin-history",
         {
           headers: { authorization: "Bearer " + token },
         }
       );
       const profileRes = await fetch(
-        "https://api.bagelbot.lol/v1/me",
+        "https://api.bagelbot.net/v1/me",
         {
           headers: { authorization: "Bearer " + token },
         }
